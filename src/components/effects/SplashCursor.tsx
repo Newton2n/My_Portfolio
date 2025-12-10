@@ -69,6 +69,7 @@ export default function SplashCursor({
   TRANSPARENT = true,
 }: SplashCursorProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const webglFailedRef = useRef(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -134,7 +135,11 @@ export default function SplashCursor({
       }
 
       if (!gl) {
-        throw new Error("Unable to initialize WebGL.");
+        // Don't throw here — surface a warning and return nulls so the
+        // parent effect can exit gracefully without crashing the app.
+        console.warn("Unable to initialize WebGL.");
+        webglFailedRef.current = true;
+        return { gl: null, ext: null } as any;
       }
 
       const isWebGL2 = "drawBuffers" in gl;
@@ -782,7 +787,7 @@ export default function SplashCursor({
     const curlProgram = new Program(baseVertexShader, curlShader);
     const vorticityProgram = new Program(baseVertexShader, vorticityShader);
     const pressureProgram = new Program(baseVertexShader, pressureShader);
-    const gradienSubtractProgram = new Program(
+    const gradientSubtractProgram = new Program(
       baseVertexShader,
       gradientSubtractShader
     );
@@ -797,7 +802,7 @@ export default function SplashCursor({
         curlProgram.program,
         vorticityProgram.program,
         pressureProgram.program,
-        gradienSubtractProgram.program
+        gradientSubtractProgram.program
       );
     } catch (e) {}
 
@@ -1181,23 +1186,23 @@ export default function SplashCursor({
         pressure.swap();
       }
 
-      gradienSubtractProgram.bind();
-      if (gradienSubtractProgram.uniforms.texelSize) {
+      gradientSubtractProgram.bind();
+      if (gradientSubtractProgram.uniforms.texelSize) {
         gl.uniform2f(
-          gradienSubtractProgram.uniforms.texelSize,
+          gradientSubtractProgram.uniforms.texelSize,
           velocity.texelSizeX,
           velocity.texelSizeY
         );
       }
-      if (gradienSubtractProgram.uniforms.uPressure) {
+      if (gradientSubtractProgram.uniforms.uPressure) {
         gl.uniform1i(
-          gradienSubtractProgram.uniforms.uPressure,
+          gradientSubtractProgram.uniforms.uPressure,
           pressure.read.attach(0)
         );
       }
-      if (gradienSubtractProgram.uniforms.uVelocity) {
+      if (gradientSubtractProgram.uniforms.uVelocity) {
         gl.uniform1i(
-          gradienSubtractProgram.uniforms.uVelocity,
+          gradientSubtractProgram.uniforms.uVelocity,
           velocity.read.attach(1)
         );
       }
