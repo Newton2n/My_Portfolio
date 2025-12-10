@@ -4,7 +4,7 @@ import { MdEmail } from "react-icons/md";
 
 const socialLinks = [
   { icon: FaGithub, label: "GitHub", href: "https://github.com/Newton2n" },
-  { icon: FaLinkedin, label: "LinkedIn", href: "http://www.linkedin.com/in/newton2n" },
+  { icon: FaLinkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/newton2n" },
   { icon: FaTwitter, label: "Twitter", href: "https://x.com/NewtonYt66184" },
   { icon: MdEmail, label: "Email", href: "mailto:newtonyt04@gmail.com" },
 ];
@@ -34,7 +34,7 @@ export default function Footer() {
         {/* Email CTA */}
         <div>
           <a
-            href="newtonyt04@gmail.com"
+            href="#"
             className="inline-flex items-center gap-2 px-6 py-3 bg-[#E2DDB4] text-black hover:bg-[#d6d1a3] rounded-lg font-semibold transition-colors"
           >
             <MdEmail size={20} />

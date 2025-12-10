@@ -2,7 +2,7 @@ import AllPage from '@/components/layout/AllPage'
 import Hero from '@/components/layout/Hero'
 import React from 'react'
 
-const Loading = () => {
+const Page = () => {
   return (
     <>
    <Hero/>
@@ -11,4 +11,4 @@ const Loading = () => {
   )
 }
 
-export default Loading
+export default Page

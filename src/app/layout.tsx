@@ -4,8 +4,8 @@ import "./globals.css";
 
 import ClientWrapper from "@/components/layout/ClientWrapper";
 import Footer from "@/components/layout/Footer";
-import AllPage from "@/components/layout/AllPage";
-import LoopLogoUi from "@/components/layout/LoopLogoUi";
+
+
 
 
 const preahvihear = Preahvihear({

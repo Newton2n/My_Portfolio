@@ -9,7 +9,7 @@ const Hero = () => {
     <section className="w-full flex flex-col md:flex-row px-6 md:px-10 py-6 md:py-8 items-center md:items-center gap-8 md:gap-16">
       {/* LEFT SOCIAL BAR */}
 <div className="w-full md:w-2/12 flex md:flex-col gap-6 text-white text-2xl md:text-3xl justify-center ">
-  <a href="http://www.linkedin.com/in/newton2n" target="_blank" rel="noopener noreferrer">
+  <a href="https://www.linkedin.com/in/newton2n" target="_blank" rel="noopener noreferrer">
     <FaLinkedinIn />
   </a>
   <a
