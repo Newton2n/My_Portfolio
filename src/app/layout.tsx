@@ -3,7 +3,9 @@ import { Preahvihear } from "next/font/google";
 import "./globals.css";
 
 import ClientWrapper from "@/components/layout/ClientWrapper";
-
+import Footer from "@/components/layout/Footer";
+import AllPage from "@/components/layout/AllPage";
+import LoopLogoUi from "@/components/layout/LoopLogoUi";
 
 
 const preahvihear = Preahvihear({
@@ -29,7 +31,9 @@ export default function RootLayout({
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                <ClientWrapper>    {children} </ClientWrapper>              
         </div>
-         
+        
+         
+         <Footer/>
       </body>
     </html>
   );
