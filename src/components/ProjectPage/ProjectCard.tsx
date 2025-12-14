@@ -14,9 +14,9 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
-  const [hover, setHover] = useState<string>("opacity-100");
-  const mouseEnter = () => {
-    setHover("opacity-0");
+
+  // Desktop hover: play video
+  const handleMouseEnter = () => {
     const videoELement = videoRef.current;
     if (!videoELement) return;
 
@@ -26,15 +26,16 @@ export default function ProjectCard({
     }
     videoELement.play().catch(() => {});
   };
-  const mouseRemove = () => {
+
+  const handleMouseLeave = () => {
     videoRef.current?.pause();
-    setHover("opacity-100");
   };
+
   return (
     <div
-      className="group relative   block rounded-xl overflow-hidden border border-[#E2DDB4]/30 shadow-lg shadow-black/50 transition-all duration-300 hover:shadow-[#FFD700]/30 hover:scale-105 w-[300px] "
-      onMouseEnter={mouseEnter}
-      onMouseLeave={mouseRemove}
+      className="group relative block rounded-xl overflow-hidden border border-[#E2DDB4]/30 shadow-lg shadow-black/50 transition-all duration-300 hover:shadow-[#FFD700]/30 hover:scale-105 w-[300px]"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       {/* Thumbnail */}
       <Image
@@ -42,51 +43,40 @@ export default function ProjectCard({
         alt={project.title}
         width={300}
         height={200}
-        className="object-cover  transition-opacity duration-300 group-hover:opacity-0 cursor-pointer "
+        className="object-cover  transition-opacity duration-300 group-hover:opacity-0 "
       />
 
-      {/* Hover Video */}
+      {/* Video */}
       <video
         ref={videoRef}
         muted
         loop
         playsInline
-        className="hidden md:block absolute cursor-pointer inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        className="hidden md:block absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        aria-label={`Preview video of ${project.title} project`}
+        tabIndex={-1}
       />
 
       {/* Overlay */}
       <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent px-4 py-3">
-        {" "}
-        <h3
-          className={`text-[15px] font-semibold mb-1  text-[#FFD700] ${hover}`}
-        >
+        <h3 className="text-[15px] md:text-[16px] font-semibold mb-1 text-[#FFD700] transition-opacity duration-300 group-hover:opacity-0">
           {project.title}
         </h3>
-        {/* {project.tech && (
-          <div className={`flex flex-wrap gap-2 text-xs text-[#FFD700] mb-2 ${hover}`}>
-            {project.tech.map((tech, idx) => (
-              <span
-                key={idx}
-                className="bg-[#FFD700]/10 px-2 py-0.5 rounded hover:after:absolute hover:after:bottom-0 hover:after:left-0 hover:after:h-[2px]  hover:after:w-full hover:after:bg-[#FFD700] hover:after:transition-all relative"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        )} */}
+
         <div className="flex gap-2">
           <a
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-2 py-1 rounded  text-[#F6EFD2] text-[10px] font-semibold border border-[#FFD700] hover:bg-[#FFD700]/90 hover:text-black transition-colors"
+            aria-label={`View live demo of ${project.title} project`}
+            className="px-2 py-1 rounded text-[#F6EFD2] text-xs md:text-sm font-semibold border border-[#FFD700] hover:bg-[#FFD700]/90 hover:text-black transition-colors"
           >
             Live Project
           </a>
 
           <button
             onClick={() => onViewDetails(project)}
-            className="px-3 py-1 rounded bg-black/5 border border-[#FFD700] text-[#FFD700] text-xs font-semibold hover:bg-[#FFD700] hover:text-black transition-colors cursor-pointer"
+            className="px-3 py-1 rounded bg-black/10 border border-[#FFD700] text-[#FFD700] text-xs md:text-sm font-semibold hover:bg-[#FFD700] hover:text-black transition-colors cursor-pointer"
           >
             View Details
           </button>

@@ -8,8 +8,8 @@ const projects: Project[] = [
   {
     title: "Full Stack Social Media ",
     category: "Full-stack",
-    image: "/image/postora.png",
-    video: "/video/postora.mp4",
+    image: "/image/postora.webp",
+    video: "/video/postora.webm",
     description:
       "A full-stack, Pinterest-inspired social media application built with Next.js and Appwrite. The app supports user authentication, post creation, and image-based content discovery through a responsive, grid-style interface backed by real-time backend services.",
     tech: ["Javascript","React","Appwrite","Redux", "Tailwind","TinyMc",],
@@ -19,8 +19,8 @@ const projects: Project[] = [
   {
     title: "Portfolio Website",
     category: "Front-end",
-    image: "/image/porfolio.png",
-    video: "/video/portfolio.mp4",
+    image: "/image/portfolio.webp",
+    video: "/video/portfolio.webm",
     description:
       "A modern personal portfolio website with clean UI, animations, and responsive design.",
     tech: ["TypeScript","React", "Next.js", "Tailwind","React Bits"],
