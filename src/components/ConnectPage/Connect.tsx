@@ -24,7 +24,7 @@ const ConnectPage = () => {
           href="https://github.com/Newton2n"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="GitHub"
+          aria-label="Newton GitHub Account"
           className="relative flex items-center group  overflow-hidden"
         >
           <FaGithub className="group-hover:text-[#FFD700] transition-colors" />
@@ -36,7 +36,7 @@ const ConnectPage = () => {
           href="https://www.linkedin.com/in/newton2n"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="LinkedIn"
+          aria-label="Newton LinkedIn Profile"
           className="relative flex items-center group"
         >
           <FaLinkedin className="group-hover:text-[#FFD700] transition-colors" />
@@ -46,7 +46,7 @@ const ConnectPage = () => {
         {/* Email */}
         <a
           href="mailto:newtonyt04@gmail.com"
-          aria-label="Email"
+          aria-label="Newton Email Address"
           className="relative flex items-center group"
         >
           <SiGmail className="group-hover:text-[#FFD700] transition-colors" />
@@ -58,7 +58,7 @@ const ConnectPage = () => {
           href="https://www.instagram.com/webcre8or"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Instagram"
+          aria-label="Newton Instagram Profile"
           className="relative flex items-center group"
         >
           <FaInstagram className="group-hover:text-[#FFD700] transition-colors" />
@@ -70,7 +70,7 @@ const ConnectPage = () => {
           href="https://x.com/NewtonYt66184"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="X"
+          aria-label="Newton Twitter(X) Account "
           className="relative flex items-center group"
         >
           <FaXTwitter className="group-hover:text-[#FFD700] transition-colors" />
@@ -82,7 +82,7 @@ const ConnectPage = () => {
           href="https://wa.me/8801612676969"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="WhatsApp"
+          aria-label="Newton WhatsApp Account"
           className="relative flex items-center group"
         >
           <FaWhatsapp className="group-hover:text-[#FFD700] transition-colors" />
